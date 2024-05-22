@@ -47,7 +47,7 @@ botonAceptar.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
 
 
-        String dni = dniRe.getText().toString();
+        String dni = dniRe.getText().toString().toUpperCase();
         String nombre = nombreRe.getText().toString();
         String apellidos = apellidosRe.getText().toString();
         String email = emailRe.getText().toString();

@@ -20,7 +20,7 @@ import com.example.juniorcalendar.vista.MainActivityRegistroNinno;
 
 public class EducacionFragment extends Fragment {
 
-    private ImageButton annadirEducacion;
+    private ImageButton annadirEducacion,calendarioEducacion;
 
 public EducacionFragment(){
 
@@ -29,6 +29,7 @@ public EducacionFragment(){
         super.onCreate(savedInstanceState);
 
 annadirEducacion=view.findViewById(R.id.imageButtonAddEducacion);
+calendarioEducacion=view.findViewById(R.id.imageButtonCalendario);
 
 
 

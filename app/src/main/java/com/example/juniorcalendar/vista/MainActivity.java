@@ -106,6 +106,9 @@ public class MainActivity extends AppCompatActivity implements TaskCompleted {
 
     private void goToMenu(Usuario usuario){
         startActivity(new Intent(MainActivity.this, MainActivityPrincipal.class));
+        usuarioLog.setText("");
+        contrasennaLog.setText("");
+        finish();
     }
 
     @Override

@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class Registro extends AsyncTask<String, Void, String> {
+public class  Registro extends AsyncTask<String, Void, String> {
 
     private TaskCompleted listener;
 
