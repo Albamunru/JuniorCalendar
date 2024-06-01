@@ -1,19 +1,29 @@
 package com.example.juniorcalendar.modelo;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Educacion {
 
     private int idEvento;
     private String idNinnoEducacion;
     private LocalDate fecha;
-    private LocalDate hora;
+    private LocalTime hora;
     private String tipoEvento;
     private String ubicacion;
     private String descripcion;
 
-    public Educacion(int idEvento, String idNinnoEducacion, LocalDate fecha, LocalDate hora, String tipoEvento, String ubicacion, String descripcion) {
+    public Educacion(int idEvento, String idNinnoEducacion, LocalDate fecha, LocalTime hora, String tipoEvento, String ubicacion, String descripcion) {
         this.idEvento = idEvento;
+        this.idNinnoEducacion = idNinnoEducacion;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.tipoEvento = tipoEvento;
+        this.ubicacion = ubicacion;
+        this.descripcion = descripcion;
+    }
+
+    public Educacion(String idNinnoEducacion, LocalDate fecha, LocalTime hora, String tipoEvento, String ubicacion, String descripcion) {
         this.idNinnoEducacion = idNinnoEducacion;
         this.fecha = fecha;
         this.hora = hora;
@@ -46,11 +56,11 @@ public class Educacion {
         this.fecha = fecha;
     }
 
-    public LocalDate getHora() {
+    public LocalTime getHora() {
         return hora;
     }
 
-    public void setHora(LocalDate hora) {
+    public void setHora(LocalTime hora) {
         this.hora = hora;
     }
 

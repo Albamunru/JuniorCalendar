@@ -36,7 +36,8 @@ public class RegistroMedico extends AsyncTask<String, Void, String> {
                             + "&horamedico=" + URLEncoder.encode(horamedico, "UTF-8")
                             + "&especialidad=" + URLEncoder.encode(especialidad, "UTF-8")
                             + "&observaciones=" + URLEncoder.encode(observaciones, "UTF-8")
-                            + "&ubicacion=" + URLEncoder.encode(ubicacion, "UTF-8");
+                            + "&ubicacion=" + URLEncoder.encode(ubicacion, "UTF-8")
+                            + "&email=" + URLEncoder.encode(usuario, "UTF-8");
 
             URL url = new URL("http://10.0.2.2/InsertarMedico.php" + query);
 

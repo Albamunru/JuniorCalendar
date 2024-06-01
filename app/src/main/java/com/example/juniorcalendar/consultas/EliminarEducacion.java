@@ -1,7 +1,5 @@
 package com.example.juniorcalendar.consultas;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -16,34 +14,25 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class DatosDeHoy  extends AsyncTask<String, Object, String> {
-
+public class EliminarEducacion  extends AsyncTask<String, Object, String> {
 
     private TaskCompleted listener;
 
-
-    private Context context;
-    private String username;
-
-    public DatosDeHoy(Context context, TaskCompleted listener) {
-        this.context = context;
+    public EliminarEducacion( TaskCompleted listener) {
         this.listener = listener;
-        SharedPreferences sharedPreferences = context.getSharedPreferences("UsuarioSesion", Context.MODE_PRIVATE);
-        this.username = sharedPreferences.getString("usuario", null);
     }
 
-
-
     @Override
-    protected String doInBackground(String... strings) {
+    protected String doInBackground(String... params) {
         String linea = "";
-        String email= username;
+        String evento=params[0];
+
 
         HttpURLConnection urlConnection = null;
         try {
             // Construir la URL con los parámetros de consulta
-           String query = "?email=" + URLEncoder.encode(email, "UTF-8") ;
-            URL url = new URL("http://10.0.2.2/ActividadesDiarias.php"+query );
+            String query = "?id_evento=" + URLEncoder.encode(evento, "UTF-8") ;
+            URL url = new URL("http://10.0.2.2/EliminarEducacion.php"+query );
 
             // Realizar la conexión HTTP y obtener la respuesta
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -68,18 +57,5 @@ public class DatosDeHoy  extends AsyncTask<String, Object, String> {
         return linea;
     }
 
-
-    @Override
-    protected void onPostExecute(String result) {
-
-        if (listener != null) {
-            try {
-                listener.onTaskCompleted(result);
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
-
-        }
-    }
 
 }

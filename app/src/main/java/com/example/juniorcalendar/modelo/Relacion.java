@@ -2,15 +2,17 @@ package com.example.juniorcalendar.modelo;
 
 public class Relacion {
     private int idRelacion;
-    private String idUsuarioUno;
-    private String idUsuarioDos;
+  /*  private String idUsuarioUno;
+    private String idUsuarioDos;*/
     private String idDniNinno;
+    private String idUsuario;
+    //private int idParejaRelacion;
 
-    public Relacion(int idRelacion, String idUsuarioUno, String idUsuarioDos, String idDniNinno) {
+    public Relacion(int idRelacion, String idUsuario, String idDniNinno) {
         this.idRelacion = idRelacion;
-        this.idUsuarioUno = idUsuarioUno;
-        this.idUsuarioDos = idUsuarioDos;
+        this.idUsuario = idUsuario;
         this.idDniNinno = idDniNinno;
+
     }
 
 
@@ -22,21 +24,15 @@ public class Relacion {
         this.idRelacion = idRelacion;
     }
 
-    public String getIdUsuarioUno() {
-        return idUsuarioUno;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdUsuarioUno(String idUsuarioUno) {
-        this.idUsuarioUno = idUsuarioUno;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getIdUsuarioDos() {
-        return idUsuarioDos;
-    }
 
-    public void setIdUsuarioDos(String idUsuarioDos) {
-        this.idUsuarioDos = idUsuarioDos;
-    }
 
     public String getIdDniNinno() {
         return idDniNinno;
@@ -46,12 +42,13 @@ public class Relacion {
         this.idDniNinno = idDniNinno;
     }
 
+
+
     @Override
     public String toString() {
-        return "relacion{" +
+        return "Relacion{" +
                 "idRelacion=" + idRelacion +
-                ", idUsuarioUno='" + idUsuarioUno + '\'' +
-                ", idUsuarioDos='" + idUsuarioDos + '\'' +
+                ", idUsuarioUno='" + idUsuario + '\'' +
                 ", idDniNinno='" + idDniNinno + '\'' +
                 '}';
     }

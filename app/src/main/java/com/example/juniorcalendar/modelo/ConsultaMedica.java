@@ -1,27 +1,31 @@
 package com.example.juniorcalendar.modelo;
 
+import android.os.Build;
+
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class ConsultaMedica {
 
 private int idConsultaMedica;
 private String idNinnoMedico;
 private LocalDate fechaMedico;
-private LocalDate horaMedico;
+private LocalTime horaMedico;
 private String especialidad;
 private String observaciones;
 private String ubicacion;
 
-    public ConsultaMedica(int idConsultaMedica, String idNinnoMedico, LocalDate fechaMedico, LocalDate horaMedico, String especialidad, String observaciones, String ubicacion) {
+    public ConsultaMedica(int idConsultaMedica, String idNinnoMedico, LocalDate fechaMedico, LocalTime horaMedico, String especialidad, String observaciones, String ubicacion) {
         this.idConsultaMedica = idConsultaMedica;
         this.idNinnoMedico = idNinnoMedico;
         this.fechaMedico = fechaMedico;
-        this.horaMedico = horaMedico;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            this.horaMedico = LocalTime.from(horaMedico);
+        }
         this.especialidad = especialidad;
         this.observaciones = observaciones;
         this.ubicacion = ubicacion;
     }
-
 
     public int getIdConsultaMedica() {
         return idConsultaMedica;
@@ -47,11 +51,11 @@ private String ubicacion;
         this.fechaMedico = fechaMedico;
     }
 
-    public LocalDate getHoraMedico() {
+    public LocalTime getHoraMedico() {
         return horaMedico;
     }
 
-    public void setHoraMedico(LocalDate horaMedico) {
+    public void setHoraMedico(LocalTime horaMedico) {
         this.horaMedico = horaMedico;
     }
 

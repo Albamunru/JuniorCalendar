@@ -131,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements TaskCompleted {
                     String apellidos = jsonObject.getString("apellidos");
                     String email = jsonObject.getString("email");
                     String contraseña = jsonObject.getString("contraseña");
+
                     Usuario usuario = new Usuario(idDni, nombre, apellidos, email, contraseña);
                     goToMenu(usuario);
                 }else{

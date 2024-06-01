@@ -1,4 +1,4 @@
-package com.example.juniorcalendar.modelo;
+package com.example.juniorcalendar.consultas;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,24 +9,26 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juniorcalendar.R;
+import com.example.juniorcalendar.modelo.Educacion;
 
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<Educacion> mData;
     private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
+    private static ItemClickListener mClickListener;
     private int posicionClick;
+
     public void setClick(int position){
         this.posicionClick=position;
-    };
+    }
 
     public int getPosicionClick() {
         return posicionClick;
     }
 
-    MyRecyclerViewAdapter(Context context, List<String> data) {
+    public MyRecyclerViewAdapter(Context context, List<Educacion> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -39,8 +41,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        Educacion educacionActual=mData.get(position);
+
+        holder.myTextView.setText(" "+educacionActual.getTipoEvento()+"\n"+ " a las "+educacionActual.getHora()+"\n en "+educacionActual.getUbicacion()+"\n Info adiccional: "+ educacionActual.getDescripcion());
     }
 
     @Override
@@ -52,27 +55,27 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         this.mClickListener = itemClickListener;
     }
 
-    public String getItem(int position) {
+    public Educacion getItem(int position) {
         return mData.get(position);
     }
 
-    public void inserterData(String perro) {
-        mData.add(perro);
+    public void inserterData(Educacion educacion) {
+        mData.add(educacion);
     }
 
-    public List<String> getmData() {
+    public List<Educacion> getmData() {
         return mData;
     }
 
     public void removedAll() {
-        mData.removeAll(mData);
+        mData.clear();
     }
 
     public void removedOne(int pos) {
         mData.remove(pos);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
 
         ViewHolder(View itemView) {
@@ -87,8 +90,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 mClickListener.onItemClick(view, getAdapterPosition());
             }
         }
-
-
     }
 
     public interface ItemClickListener {

@@ -22,16 +22,14 @@ public class RegistroFamilia extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
         String dniUno = params[0];
-        String dniDos = params[1];
-        String dniNinno = params[2];
+        String dniNinno = params[1];
 
         String insercion = "";
         HttpURLConnection urlConnection = null;
         try {
             // Construir la URL con los parámetros de consulta
             String query =
-                    "?id_usuariouno=" + URLEncoder.encode(dniUno, "UTF-8")
-                            + "&id_usuariodos=" + URLEncoder.encode(dniDos, "UTF-8")
+                    "?id_usuarioRelacion=" + URLEncoder.encode(dniUno, "UTF-8")
                             + "&id_dniniño=" + URLEncoder.encode(dniNinno, "UTF-8");
             URL url = new URL("http://10.0.2.2/InsertarFamilia.php" + query);
 

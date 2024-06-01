@@ -51,7 +51,7 @@ botonAceptar.setOnClickListener(new View.OnClickListener() {
         String nombre = nombreRe.getText().toString();
         String apellidos = apellidosRe.getText().toString();
         String email = emailRe.getText().toString();
-        String contrasenna = contrasennaRe.getText().toString();
+        String contrasenna = contrasennaRe.getText().toString().toUpperCase();
 
         if (!dni.isEmpty() && !nombre.isEmpty()&& !apellidos.isEmpty()&& !email.isEmpty()&& !contrasenna.isEmpty()) {
 

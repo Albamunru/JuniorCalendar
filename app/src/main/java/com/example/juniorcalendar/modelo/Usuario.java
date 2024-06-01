@@ -6,7 +6,7 @@ private String nombre;
 private String apellidos;
 private String email;
 private String contrasenna;
-
+//private int idPareja;
 
     public Usuario() {
 
@@ -18,15 +18,11 @@ private String contrasenna;
         this.apellidos = apellidos;
         this.email = email;
         this.contrasenna = contrasenna;
+
     }
 
 
-    public Usuario(String nombre, String apellidos, String email, String contrasenna) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.contrasenna = contrasenna;
-    }
+
 
     public Usuario(String email, String contrasenna) {
     }
@@ -72,15 +68,24 @@ private String contrasenna;
         this.contrasenna = contrasenna;
     }
 
+    public String getIdDni() {
+        return idDni;
+    }
+
+    public void setIdDni(String idDni) {
+        this.idDni = idDni;
+    }
+
+
     @Override
     public String toString() {
-        return "usuario{" +
-
+        return "Usuario{" +
                 "idDni='" + idDni + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
                 ", email='" + email + '\'' +
                 ", contrasenna='" + contrasenna + '\'' +
+
                 '}';
     }
 }

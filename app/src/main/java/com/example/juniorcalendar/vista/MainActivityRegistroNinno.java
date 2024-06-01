@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.juniorcalendar.R;
+import com.example.juniorcalendar.Utiles.Utiles;
 import com.example.juniorcalendar.consultas.RegistroNinno;
 import com.example.juniorcalendar.consultas.TaskCompleted;
 
@@ -20,6 +21,7 @@ public class MainActivityRegistroNinno extends AppCompatActivity implements Task
 private Button botonGuardar;
 private EditText nombre,apellidos, fechaNacimiento,dni;
 private RegistroNinno registroNinno;
+private Utiles utiles=new Utiles();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +45,12 @@ private RegistroNinno registroNinno;
                 String nombreGuardar=nombre.getText().toString();
                 String apellidosGuardar=apellidos.getText().toString();
                 String fechaNacimientoGuardar=fechaNacimiento.getText().toString();
+                String fechaConvertida=utiles.formatearFecha(fechaNacimientoGuardar);
                 String dniGuardar=dni.getText().toString().toUpperCase();
-                if (!nombreGuardar.isEmpty() && !apellidosGuardar.isEmpty()&& !fechaNacimientoGuardar.isEmpty()&& !dniGuardar.isEmpty()) {
+                if (!nombreGuardar.isEmpty() && !apellidosGuardar.isEmpty()&& !fechaConvertida.isEmpty()&& !dniGuardar.isEmpty()) {
 
                     registroNinno = new RegistroNinno(MainActivityRegistroNinno.this);
-                    registroNinno.execute(nombreGuardar,apellidosGuardar,fechaNacimientoGuardar,dniGuardar);
+                    registroNinno.execute(nombreGuardar,apellidosGuardar,fechaConvertida,dniGuardar);
                     Intent intent = new Intent(MainActivityRegistroNinno.this, MainActivityPrincipal.class);
                     startActivity(intent);
                 } else {

@@ -1,4 +1,4 @@
-package com.example.juniorcalendar.modelo;
+package com.example.juniorcalendar.consultas;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,38 +9,43 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juniorcalendar.R;
+import com.example.juniorcalendar.modelo.ConsultaMedica;
 
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+public class MyRecyclerViewAdapterMedico extends RecyclerView.Adapter<MyRecyclerViewAdapterMedico.ViewHolder> {
 
-    private List<String> mData;
+    private List<ConsultaMedica> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
     private int posicionClick;
-    public void setClick(int position){
-        this.posicionClick=position;
-    };
+
+    public void setClick(int position) {
+        this.posicionClick = position;
+    }
 
     public int getPosicionClick() {
         return posicionClick;
     }
 
-    MyRecyclerViewAdapter(Context context, List<String> data) {
+    public MyRecyclerViewAdapterMedico(Context context, List<ConsultaMedica> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.recycler_view_item, parent, false);
+        View itemView = mInflater.inflate(R.layout.recycle_educacion, parent, false);
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        ConsultaMedica consultaMedica = mData.get(position);
+        holder.myTextView.setText(" " + consultaMedica.getEspecialidad() + "\n" +
+                " a las " + consultaMedica.getHoraMedico() + "\n" +
+                " en " + consultaMedica.getUbicacion() + "\n" +
+                " Info adicional: " + consultaMedica.getObservaciones());
     }
 
     @Override
@@ -52,20 +57,20 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         this.mClickListener = itemClickListener;
     }
 
-    public String getItem(int position) {
+    public ConsultaMedica getItem(int position) {
         return mData.get(position);
     }
 
-    public void inserterData(String perro) {
-        mData.add(perro);
+    public void inserterData(ConsultaMedica consultaMedica) {
+        mData.add(consultaMedica);
     }
 
-    public List<String> getmData() {
+    public List<ConsultaMedica> getmData() {
         return mData;
     }
 
     public void removedAll() {
-        mData.removeAll(mData);
+        mData.clear();
     }
 
     public void removedOne(int pos) {
@@ -77,7 +82,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.textView1);
+            myTextView = itemView.findViewById(R.id.textViewEducacion);
             itemView.setOnClickListener(this);
         }
 
@@ -87,8 +92,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 mClickListener.onItemClick(view, getAdapterPosition());
             }
         }
-
-
     }
 
     public interface ItemClickListener {
