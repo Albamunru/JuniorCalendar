@@ -10,11 +10,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class EliminarMedico extends AsyncTask<String, Object, String> {
+public class EliminarOcio extends AsyncTask<String, Object, String> {
 
     private TaskCompleted listener;
 
-    public EliminarMedico( TaskCompleted listener) {
+    public EliminarOcio( TaskCompleted listener) {
         this.listener = listener;
     }
 
@@ -27,8 +27,8 @@ public class EliminarMedico extends AsyncTask<String, Object, String> {
         HttpURLConnection urlConnection = null;
         try {
             // Construir la URL con los parámetros de consulta
-            String query = "?id_consultamedica=" + URLEncoder.encode(evento, "UTF-8") ;
-            URL url = new URL("http://10.0.2.2/EliminarConsultaMedica.php"+query );
+            String query = "?id_actividad=" + URLEncoder.encode(evento, "UTF-8") ;
+            URL url = new URL("http://10.0.2.2/EliminarOcio.php"+query );
 
             // Realizar la conexión HTTP y obtener la respuesta
             urlConnection = (HttpURLConnection) url.openConnection();

@@ -1,6 +1,9 @@
 package com.example.juniorcalendar.modelo;
 
+import android.os.Build;
+
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Ocio {
 
@@ -9,10 +12,10 @@ public class Ocio {
     private String nombreActividad;
     private String descripcion;
     private LocalDate fechaActividad;
-    private LocalDate horaActividad;
+    private LocalTime horaActividad;
     private String ubicacionActividad;
 
-    public Ocio(int idActividad, String idNinnoActividad, String nombreActividad, String descripcion, LocalDate fechaActividad, LocalDate horaActividad, String ubicacionActividad) {
+    public Ocio(int idActividad, String idNinnoActividad, String nombreActividad, String descripcion, LocalDate fechaActividad, LocalTime horaActividad, String ubicacionActividad) {
         this.idActividad = idActividad;
         this.idNinnoActividad = idNinnoActividad;
         this.nombreActividad = nombreActividad;
@@ -21,7 +24,6 @@ public class Ocio {
         this.horaActividad = horaActividad;
         this.ubicacionActividad = ubicacionActividad;
     }
-
 
     public int getIdActividad() {
         return idActividad;
@@ -63,11 +65,11 @@ public class Ocio {
         this.fechaActividad = fechaActividad;
     }
 
-    public LocalDate getHoraActividad() {
+    public LocalTime getHoraActividad() {
         return horaActividad;
     }
 
-    public void setHoraActividad(LocalDate horaActividad) {
+    public void setHoraActividad(LocalTime horaActividad) {
         this.horaActividad = horaActividad;
     }
 
@@ -92,3 +94,4 @@ public class Ocio {
                 '}';
     }
 }
+
