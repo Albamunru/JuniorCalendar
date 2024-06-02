@@ -153,8 +153,6 @@ public class OcioFragment extends Fragment implements TaskCompleted, MyRecyclerV
 
 
 
-// Dentro de la clase OcioFragment
-
     private void extracted(JSONArray ocio) throws JSONException {
         listadoOcio.clear();
         DateTimeFormatter dateFormatter = null;
