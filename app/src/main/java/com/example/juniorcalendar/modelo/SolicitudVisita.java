@@ -6,23 +6,35 @@ public class SolicitudVisita {
     private int idVisita;
     private String idNinnoVisita;
     private String idSolicitanteVisita;
+    private String idDestinatarioVisita;
 
     private String periodoCambio;
     private LocalDate fechaSolicitud;
-    private boolean respuesta;
+    private String respuesta;
     private String nota;
 
 
-    public SolicitudVisita(int idVisita, String idNinnoVisita, String idSolicitanteVisita, String periodoCambio, LocalDate fechaSolicitud, boolean respuesta, String nota) {
+    public SolicitudVisita(int idVisita, String idNinnoVisita, String idSolicitanteVisita, String idDestinatarioVisita, String periodoCambio, LocalDate fechaSolicitud, String respuesta, String nota) {
         this.idVisita = idVisita;
         this.idNinnoVisita = idNinnoVisita;
         this.idSolicitanteVisita = idSolicitanteVisita;
+        this.idDestinatarioVisita = idDestinatarioVisita;
         this.periodoCambio = periodoCambio;
         this.fechaSolicitud = fechaSolicitud;
         this.respuesta = respuesta;
         this.nota = nota;
     }
 
+
+
+
+    public String getIdDestinatarioVisita() {
+        return idDestinatarioVisita;
+    }
+
+    public void setIdDestinatarioVisita(String idDestinatarioVisita) {
+        this.idDestinatarioVisita = idDestinatarioVisita;
+    }
 
     public int getIdVisita() {
         return idVisita;
@@ -64,11 +76,11 @@ public class SolicitudVisita {
         this.fechaSolicitud = fechaSolicitud;
     }
 
-    public boolean isRespuesta() {
+    public String getRespuesta() {
         return respuesta;
     }
 
-    public void setRespuesta(boolean respuesta) {
+    public void setRespuesta(String respuesta) {
         this.respuesta = respuesta;
     }
 
