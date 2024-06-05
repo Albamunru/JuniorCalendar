@@ -64,12 +64,7 @@ private ImageButton botonRegistroNinno,botonRegistroFamilia;
         datosDeHoy = new DatosDeHoy(getContext(),this);
         datosDeHoy.execute();
         textoDevuelto=view.findViewById(R.id.editTextdevuelto);
-       // RecyclerView recyclerView = view.findViewById(R.id.recicle);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
-       // adapter = new MyRecyclerViewAdapter(this, nombreAnimales);
-       // adapter.setClickListener(this);
-        //recyclerView.setAdapter(adapter);
 
 
 
@@ -160,7 +155,7 @@ botonRegistroFamilia.setOnClickListener(new View.OnClickListener() {
         for (int i = 0; i< consultamedica.length(); i++) extraerDatosMedico(consultamedica, stringBuilder, i);
 
         stringBuilder.append("Solicitud de visita: ").append("").append("\n"+"\n");
-        for (int i = 0; i< solicitudvisita.length(); i++) extraerVisita(consultamedica, stringBuilder, i);
+        for (int i = 0; i< solicitudvisita.length(); i++) extraerVisita(solicitudvisita, stringBuilder, i);
     }
 
 
@@ -172,7 +167,7 @@ botonRegistroFamilia.setOnClickListener(new View.OnClickListener() {
 
         stringBuilder.append("").append(nota).append("\n");
 
-        stringBuilder.append("\n"); // Agrega una línea en blanco entre cada registro
+        stringBuilder.append("\n");
 
         Log.i("debug", "Actividad: " + nota);
 
@@ -195,7 +190,7 @@ botonRegistroFamilia.setOnClickListener(new View.OnClickListener() {
         stringBuilder.append("").append(especialidad).append("\n");
         stringBuilder.append("").append(ubicacion).append("\n");
         stringBuilder.append("").append(observacion).append("\n");
-        stringBuilder.append("\n"); // Agrega una línea en blanco entre cada registro
+        stringBuilder.append("\n");
 
         Log.i("debug", "Actividad: " + especialidad);
         Log.i("debug", "Ubicación: " + ubicacion);
@@ -213,7 +208,7 @@ botonRegistroFamilia.setOnClickListener(new View.OnClickListener() {
         stringBuilder.append("").append(nombreActividad).append("\n");
         stringBuilder.append("").append(ubicacion).append("\n");
         stringBuilder.append("").append(descripcion).append("\n");
-        stringBuilder.append("\n"); // Agrega una línea en blanco entre cada registro
+        stringBuilder.append("\n");
 
         Log.i("debug", "Actividad: " + nombreActividad);
         Log.i("debug", "Ubicación: " + ubicacion);
@@ -240,7 +235,7 @@ botonRegistroFamilia.setOnClickListener(new View.OnClickListener() {
         stringBuilder.append("").append(tipoEvento).append("\n");
         stringBuilder.append("").append(ubicacion).append("\n");
         stringBuilder.append("").append(descripcion).append("\n");
-        stringBuilder.append("\n"); // Agrega una línea en blanco entre cada registro
+        stringBuilder.append("\n");
 
         Log.i("debug", "Tipo de Evento: " + tipoEvento);
         Log.i("debug", "Ubicación: " + ubicacion);

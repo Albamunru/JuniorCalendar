@@ -192,8 +192,6 @@ public class HorarioFragment extends Fragment implements TaskCompleted, MyRecycl
 
 
 
-
-            // Asegúrate de que la versión de Android soporta java.time (API Level 26 y superior)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 try {
                     fechaLo = LocalDate.parse(fecha, dateFormatter);
@@ -250,7 +248,7 @@ public class HorarioFragment extends Fragment implements TaskCompleted, MyRecycl
             AlertDialog dialog = builder.create();
             dialog.show();
 
-            // Agregar botón "Responder No"
+
             dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

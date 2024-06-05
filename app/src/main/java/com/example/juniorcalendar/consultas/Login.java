@@ -37,17 +37,17 @@ public class Login extends AsyncTask<String, Object, String> {
 
         HttpURLConnection urlConnection = null;
         try {
-            // Construir la URL con los parámetros de consulta
+
             String query = "?email=" + URLEncoder.encode(email, "UTF-8") + "&contraseña=" + URLEncoder.encode(contraseña, "UTF-8");
             URL url = new URL("http://10.0.2.2/BuscarUsuario.php" + query);
 
-            // Realizar la conexión HTTP y obtener la respuesta
+
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream is = urlConnection.getInputStream();
             InputStreamReader isReader = new InputStreamReader(is, "UTF-8");
             BufferedReader reader = new BufferedReader(isReader);
 
-            // Leer la respuesta del servidor como un String
+
             linea = reader.readLine();
 
             Log.i("debug",linea);
@@ -59,7 +59,7 @@ public class Login extends AsyncTask<String, Object, String> {
             }
         }
 
-        // Devolver la respuesta del servidor como un String
+
         return linea;
     }
 

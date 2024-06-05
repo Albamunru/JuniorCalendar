@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements TaskCompleted {
                 String contrasenna = contrasennaLog.getText().toString();
 
                 if (!usuario.isEmpty() && !contrasenna.isEmpty()) {
-                    // Crear una instancia de LoginTask y ejecutarla con los datos de usuario y contraseña
+
                     login = new Login(MainActivity.this);
                     login.execute(usuario, contrasenna);
 
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements TaskCompleted {
 
 
             try {
-                // Aquí parsea la respuesta JSON y crea un objeto Usuario
+
                 JSONArray jsonArray = new JSONArray(usuarioString);
 
                 if (jsonArray.length() > 0) {

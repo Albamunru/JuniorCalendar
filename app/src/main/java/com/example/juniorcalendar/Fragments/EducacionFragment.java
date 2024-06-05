@@ -94,7 +94,7 @@ public class EducacionFragment extends Fragment implements TaskCompleted, MyRecy
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflar el diseño para este fragmento
+
         return inflater.inflate(R.layout.fragment_educacion, container, false);
     }
 
@@ -109,7 +109,7 @@ public class EducacionFragment extends Fragment implements TaskCompleted, MyRecy
                 final String selectedDate = day + "-" + (month + 1) + "-" + year;
                 fecha.setText(selectedDate);
 
-                // Ejecutar la tarea después de seleccionar la fecha
+
                 String fechaSeleccionada = fecha.getText().toString();
                 if (!fechaSeleccionada.isEmpty()) {
                     recuperarEducacionCalendario = new RecuperarEducacionCalendario(getContext(), EducacionFragment.this);
@@ -175,7 +175,7 @@ public class EducacionFragment extends Fragment implements TaskCompleted, MyRecy
 
             listadoEducacion.add(educacionObj);
         }
-        adapter.notifyDataSetChanged(); // Notificar cambios al adapter después de añadir todos los datos
+        adapter.notifyDataSetChanged();
     }
 
 

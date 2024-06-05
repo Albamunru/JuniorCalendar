@@ -4,6 +4,8 @@
     <string name="apellidos">Apellidos</string>
     <string name="dni">DNI</string>
     <string name="contrasenna">Contraseña</string>
+    <string name="formulario">Formulario de registro</string>
+    <string name="obligatorio">Campos obligatorios(*)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

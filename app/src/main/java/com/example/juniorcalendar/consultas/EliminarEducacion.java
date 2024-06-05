@@ -30,17 +30,17 @@ public class EliminarEducacion  extends AsyncTask<String, Object, String> {
 
         HttpURLConnection urlConnection = null;
         try {
-            // Construir la URL con los parámetros de consulta
+
             String query = "?id_evento=" + URLEncoder.encode(evento, "UTF-8") ;
             URL url = new URL("http://10.0.2.2/EliminarEducacion.php"+query );
 
-            // Realizar la conexión HTTP y obtener la respuesta
+
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream is = urlConnection.getInputStream();
             InputStreamReader isReader = new InputStreamReader(is, "UTF-8");
             BufferedReader reader = new BufferedReader(isReader);
 
-            // Leer la respuesta del servidor como un String
+
             linea = reader.readLine();
 
             Log.i("debug",linea);

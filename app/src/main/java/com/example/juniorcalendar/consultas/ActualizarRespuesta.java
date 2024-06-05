@@ -11,20 +11,14 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class ActualizarRespuesta  extends AsyncTask<String, Object, String> {
-
-
     private TaskCompleted listener;
-
-
     private Context context;
     private String username;
-
     public ActualizarRespuesta(TaskCompleted listener) {
         this.context = context;
         this.listener = listener;
 
     }
-
 
     @Override
     protected String doInBackground(String... params) {
@@ -64,12 +58,10 @@ public class ActualizarRespuesta  extends AsyncTask<String, Object, String> {
             }
         }
 
-        // Devolver la respuesta del servidor como un String
         return insercion;
 
 
     }
-
 
     @Override
     protected void onPostExecute(String result) {

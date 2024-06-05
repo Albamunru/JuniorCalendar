@@ -61,7 +61,7 @@ public class RegistroHorario extends AsyncTask<String, Void, String> {
         String insercion = "";
         HttpURLConnection urlConnection = null;
         try {
-            // Construir la URL con los parámetros de consulta
+
             String query =
                     "?id_destinatariovisita=" + URLEncoder.encode(dni_destinatariovisita, "UTF-8")
                             + "&periodo_cambio=" + URLEncoder.encode(periodoCambio, "UTF-8")
@@ -73,7 +73,7 @@ public class RegistroHorario extends AsyncTask<String, Void, String> {
 
             URL url = new URL("http://10.0.2.2/InsertarHorario.php" + query);
 
-            // Realizar la conexión HTTP y obtener la respuesta
+
             urlConnection = (HttpURLConnection) url.openConnection();
             Log.i("url", urlConnection.toString());
             int responseCode = urlConnection.getResponseCode();

@@ -45,12 +45,12 @@ public class RecuperarHorarioCalendario extends AsyncTask<String, Void, String> 
         BufferedReader reader = null;
 
         try {
-            // Construir la URL con los parámetros de consulta
+
             String query = "?fechasolicitud=" + URLEncoder.encode(fechaConvertida, "UTF-8")
                     + "&email=" + URLEncoder.encode(email, "UTF-8");
             URL url = new URL("http://10.0.2.2/RecuperarHorarioCalendario.php" + query);
 
-            // Realizar la conexión HTTP y obtener la respuesta
+
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.setConnectTimeout(5000); // Timeout de conexión en milisegundos
@@ -60,7 +60,7 @@ public class RecuperarHorarioCalendario extends AsyncTask<String, Void, String> 
             InputStreamReader isReader = new InputStreamReader(is, "UTF-8");
             reader = new BufferedReader(isReader);
 
-            // Leer la respuesta del servidor como un String
+
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {

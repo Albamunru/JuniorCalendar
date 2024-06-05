@@ -76,8 +76,6 @@ public class SaludFragment extends Fragment implements TaskCompleted, MyRecycler
         recyclerView.setAdapter(adapter);
 
 
-
-
         calendarioSalud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,15 +102,11 @@ public class SaludFragment extends Fragment implements TaskCompleted, MyRecycler
     }
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_salud, container, false);
-
-
 
 
     }
@@ -127,7 +121,6 @@ public class SaludFragment extends Fragment implements TaskCompleted, MyRecycler
                 final String selectedDate = day + "-" + (month + 1) + "-" + year;
                 fecha.setText(selectedDate);
 
-                // Ejecutar la tarea después de seleccionar la fecha
                 String fechaSeleccionada = fecha.getText().toString();
                 if (!fechaSeleccionada.isEmpty()) {
                     recuperarMedicoCalendario = new RecuperarMedicoCalendario(getContext(), SaludFragment.this);
@@ -181,10 +174,9 @@ public class SaludFragment extends Fragment implements TaskCompleted, MyRecycler
             LocalDate fechaLo = null;
             LocalTime horaLo = null;
 
-            // Asegurarse de que la versión de Android soporta java.time (API Level 26 y superior)
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                fechaLo = LocalDate.parse(fecha); // Esto debería ser correcto si "fechamedico" es una fecha válida
-                horaLo = LocalTime.parse(hora); // Esto debería ser correcto si "horamedico" es una hora válida
+                fechaLo = LocalDate.parse(fecha);
+                horaLo = LocalTime.parse(hora);
             }
 
             String especialidad = json.getString("especialidad");
@@ -192,18 +184,17 @@ public class SaludFragment extends Fragment implements TaskCompleted, MyRecycler
             String ubicacion = json.getString("ubicacion");
             int idConsultaMedica = json.getInt("id_consultamedica");
 
-            // Crear el objeto ConsultaMedica solo si la versión de Android soporta LocalDate y LocalTime
             ConsultaMedica consultaMedicaObj = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 consultaMedicaObj = new ConsultaMedica(idConsultaMedica, idNinoMedico, fechaLo, horaLo, especialidad, observaciones, ubicacion);
             }
 
-            // Añadir el objeto a la lista solo si fue creado
+
             if (consultaMedicaObj != null) {
                 listadoConsultaMedica.add(consultaMedicaObj);
             }
         }
-        adapter.notifyDataSetChanged(); // Notificar cambios al adapter después de añadir todos los datos
+        adapter.notifyDataSetChanged();
     }
 
 

@@ -39,11 +39,11 @@ private RegistroFamilia registroFamilia;
             tutorUno.setFilters(filters);
             ninno.setFilters(filters);
         } else {
-            // Maneja el caso donde los EditText no fueron encontrados
+
             Log Log = null;
             Log.e("MainActivityRegistroFamilia", "Uno o ambos EditText no pudieron ser encontrados");
             Toast.makeText(this, "Error al inicializar los campos de texto", Toast.LENGTH_SHORT).show();
-            return; // Sale del método onCreate si los EditText no son encontrados
+            return;
         }
 
 

@@ -172,7 +172,7 @@ public class OcioFragment extends Fragment implements TaskCompleted, MyRecyclerV
             LocalDate fechaLo = null;
             LocalTime horaLo = null;
 
-            // Asegúrate de que la versión de Android soporta java.time (API Level 26 y superior)
+
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 try {
                     fechaLo = LocalDate.parse(fecha, dateFormatter);

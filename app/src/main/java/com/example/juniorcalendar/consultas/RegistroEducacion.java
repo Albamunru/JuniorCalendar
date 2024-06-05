@@ -75,8 +75,6 @@ public class RegistroEducacion extends AsyncTask<String, Void, String> {
         String ubicacion = params[3];
         String descripcion = params[4];
 
-
-
         String insercion = "";
         HttpURLConnection urlConnection = null;
         try {

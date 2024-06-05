@@ -19,8 +19,6 @@ import com.example.juniorcalendar.consultas.TaskCompleted;
 import org.json.JSONException;
 
 public class MainActivityRegistro extends AppCompatActivity implements TaskCompleted {
-
-
     private Button botonAceptar;
     private EditText nombreRe,apellidosRe,dniRe,emailRe,contrasennaRe;
     private Registro registro;

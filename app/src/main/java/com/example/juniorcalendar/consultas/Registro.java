@@ -29,7 +29,7 @@ public class  Registro extends AsyncTask<String, Void, String> {
         String insercion = "";
         HttpURLConnection urlConnection = null;
         try {
-            // Construir la URL con los parámetros de consulta
+
             String query =
                     "?id_dni=" + URLEncoder.encode(dni, "UTF-8")
                             + "&nombre=" + URLEncoder.encode(nombre, "UTF-8")
@@ -39,7 +39,7 @@ public class  Registro extends AsyncTask<String, Void, String> {
                             + "&contraseña=" + URLEncoder.encode(contrasenna, "UTF-8");
             URL url = new URL("http://10.0.2.2/InsertarUsuario.php" + query);
 
-            // Realizar la conexión HTTP y obtener la respuesta
+
 
             urlConnection = (HttpURLConnection) url.openConnection();
             Log.i("url",urlConnection.toString());
@@ -63,23 +63,22 @@ public class  Registro extends AsyncTask<String, Void, String> {
             }
         }
 
-        // Devolver la respuesta del servidor como un String
+
         return insercion;
     }
 
     @Override
     protected void onPostExecute(String result) {
         if (result.equals("Exito")) {
-            // La inserción fue exitosa
+
             try {
-                listener.onTaskCompleted(result);  // Informar éxito al listener
+                listener.onTaskCompleted(result);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         } else {
-            // La inserción falló
             try {
-                listener.onTaskCompleted(result);  // Informar fallo al listener
+                listener.onTaskCompleted(result);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

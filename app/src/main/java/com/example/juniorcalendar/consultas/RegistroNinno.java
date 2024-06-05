@@ -7,16 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class RegistroNinno extends AsyncTask<String, Void, String> {
-
-
-    private TaskCompleted listener;
+public class RegistroNinno extends AsyncTask<String, Void, String> { private TaskCompleted listener;
 
     public RegistroNinno(TaskCompleted listener) {
         this.listener = listener;
     }
-
-
     @Override
     protected String doInBackground(String... params) {
 
@@ -27,7 +22,7 @@ public class RegistroNinno extends AsyncTask<String, Void, String> {
         String insercion = "";
         HttpURLConnection urlConnection = null;
         try {
-            // Construir la URL con los parámetros de consulta
+
             String query =
                     "?id_dniniño=" + URLEncoder.encode(dni, "UTF-8")
                             + "&nombre_niño=" + URLEncoder.encode(nombre, "UTF-8")
@@ -36,7 +31,7 @@ public class RegistroNinno extends AsyncTask<String, Void, String> {
                             + "&fechanacimiento_niño=" + URLEncoder.encode(fechaNacimiento, "UTF-8");
             URL url = new URL("http://10.0.2.2/InsertarNinno.php" + query);
 
-            // Realizar la conexión HTTP y obtener la respuesta
+
 
             urlConnection = (HttpURLConnection) url.openConnection();
             Log.i("url",urlConnection.toString());
@@ -60,7 +55,7 @@ public class RegistroNinno extends AsyncTask<String, Void, String> {
             }
         }
 
-        // Devolver la respuesta del servidor como un String
+
         return insercion;
 
 

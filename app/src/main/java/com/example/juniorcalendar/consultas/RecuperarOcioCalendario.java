@@ -45,22 +45,22 @@ public class RecuperarOcioCalendario extends AsyncTask<String, Void, String> {
         BufferedReader reader = null;
 
         try {
-            // Construir la URL con los parámetros de consulta
+
             String query = "?fecha_actividad=" + URLEncoder.encode(fechaConvertida, "UTF-8")
                     + "&email=" + URLEncoder.encode(email, "UTF-8");
             URL url = new URL("http://10.0.2.2/RecuperarOcioCalendario.php" + query);
 
-            // Realizar la conexión HTTP y obtener la respuesta
+
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
-            urlConnection.setConnectTimeout(5000); // Timeout de conexión en milisegundos
-            urlConnection.setReadTimeout(5000); // Timeout de lectura en milisegundos
+            urlConnection.setConnectTimeout(5000);
+            urlConnection.setReadTimeout(5000);
 
             InputStream is = urlConnection.getInputStream();
             InputStreamReader isReader = new InputStreamReader(is, "UTF-8");
             reader = new BufferedReader(isReader);
 
-            // Leer la respuesta del servidor como un String
+
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {

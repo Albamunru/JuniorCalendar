@@ -29,7 +29,7 @@ public class DatePickerFragment extends DialogFragment {
         final Calendar c;
 
         Resources res = getResources();
-// Change locale settings in the app.
+
         DisplayMetrics dm = res.getDisplayMetrics();
         android.content.res.Configuration conf = res.getConfiguration();
 

@@ -38,7 +38,7 @@ private RecuperarContrasenna recuperarContrasenna;
     public void onClick(View v) {
         String emailIntroducido=usuarioBuscar.getText().toString();
         if (!emailIntroducido.isEmpty()) {
-            // Crear una instancia de LoginTask y ejecutarla con los datos de usuario y contraseña
+
             recuperarContrasenna = new RecuperarContrasenna(MainActivityOlvidarContrasenna.this);
             recuperarContrasenna.execute(emailIntroducido);
         } else {
@@ -59,7 +59,7 @@ private RecuperarContrasenna recuperarContrasenna;
 
 
             try {
-                // Aquí parsea la respuesta JSON y crea un objeto Usuario
+
                 JSONArray jsonArray = new JSONArray(datoEncontrado);
 
                 if (jsonArray.length() > 0) {
@@ -85,14 +85,14 @@ JSONObject jsonObject=jsonArray.getJSONObject(0);
                     contrasennaEncontrada.setText("Datos no encontrados");
                     contrasennaEncontrada.setVisibility(View.VISIBLE);
 
-                    // Configurar un temporizador para ocultar el TextView después de 3 segundos
+
                     new CountDownTimer(3000, 1000) {
                         public void onTick(long millisUntilFinished) {
-                            // No es necesario hacer nada en cada tick
+
                         }
 
                         public void onFinish() {
-                            // Ocultar el TextView cuando el temporizador finaliza
+
                             contrasennaEncontrada.setVisibility(View.GONE);
                         }
                     }.start();
@@ -111,14 +111,14 @@ JSONObject jsonObject=jsonArray.getJSONObject(0);
             contrasennaEncontrada.setText("Datos no encontrados");
             contrasennaEncontrada.setVisibility(View.VISIBLE);
 
-            // Configurar un temporizador para ocultar el TextView después de 3 segundos
+
             new CountDownTimer(3000, 1000) {
                 public void onTick(long millisUntilFinished) {
-                    // No es necesario hacer nada en cada tick
+
                 }
 
                 public void onFinish() {
-                    // Ocultar el TextView cuando el temporizador finaliza
+
                     contrasennaEncontrada.setVisibility(View.GONE);
                 }
             }.start();
